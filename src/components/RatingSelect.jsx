@@ -1,8 +1,8 @@
 import { useState } from "react"
 
-export default function RatingSelect({select}){
+export default function RatingSelect({select, rating}){
 
-    const [selected, setSelected] = useState(10)
+    const [selected, setSelected] = useState(rating)
 
     const ratingScore =  [1,2,3,4,5,6,7,8,9,10];
 
