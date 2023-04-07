@@ -188,8 +188,9 @@ input:focus {
 /* FIX: Remove position: absolute to keep about icon at the bottom of the
  * document */
 .about-link {
-  display: flex;
-  justify-content: flex-end;
+  position: absolute;
+  left: 90%;
+  margin-bottom: 3rem;
 }
 
 /* FIX: Remove position: absolute to keep about icon at the bottom of the
@@ -210,6 +211,8 @@ input:focus {
 .about p {
   margin: 10px 0;
 }
+
+
 
 @media (max-width: 600px) {
   .rating li {
