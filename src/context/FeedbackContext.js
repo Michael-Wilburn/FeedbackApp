@@ -1,11 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
 import { createContext, useState, useEffect } from 'react';
-import FeedbackData from '../data/FeedbackData';
+// import FeedbackData from '../data/FeedbackData';
 const FeedbackContext = createContext();
 
 export const FeedbackProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [feedback, setFeedback] = useState();
+  const [feedback, setFeedback] = useState([]);
 
   const [feedbackEdit, setFeedbackEdit] = useState({
     item: {},
