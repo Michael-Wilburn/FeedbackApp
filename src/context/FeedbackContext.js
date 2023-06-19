@@ -18,7 +18,9 @@ export const FeedbackProvider = ({ children }) => {
 
   //Fetch feedback
   const fetchFeedback = async () => {
-    const response = await fetch('/feedback?_sort=id&_order=desc');
+    const response = await fetch('/feedback?_sort=id&_order=desc', {
+      mode: 'cors',
+    });
     const data = await response.json();
     setFeedback(data);
     setIsLoading(false);
@@ -34,7 +36,7 @@ export const FeedbackProvider = ({ children }) => {
 
   const deleteFeedback = async (id) => {
     if (window.confirm('Are you sure you want to delete this feedback?')) {
-      await fetch(`/feedback/${id}`, { method: 'DELETE' });
+      await fetch(`/feedback/${id}`, { method: 'DELETE', mode: 'cors' });
       setFeedback(feedback.filter((item) => item.id !== id));
     }
   };
@@ -45,6 +47,7 @@ export const FeedbackProvider = ({ children }) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newFeedback),
+      mode: 'cors',
     });
 
     const data = await response.json();
@@ -58,6 +61,7 @@ export const FeedbackProvider = ({ children }) => {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updItem),
+      mode: 'cors',
     });
 
     const data = await response.json();
